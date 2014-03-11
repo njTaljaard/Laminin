@@ -3,6 +3,7 @@
 \usepackage{tikz}
 \usepackage{epigraph}
 \usepackage{lipsum}
+\usepackage{hyperref}
 
 \usepackage{setspace, amsmath}
 
@@ -85,7 +86,7 @@
 \epigraph{ Tender application for XGame presented by Derivco. The perpose of this document is to give an overview of why we should be awarded the project \\ and how we aim to achieve success and complete the project.}%
 {\textit{ 2014 }\\ \textsc{ }}
 \null\vfill
-\vspace*{1cm}
+\vspace*{2cm}
 \noindent
 \hfill
 \begin{minipage}{0.35\linewidth}
@@ -110,6 +111,7 @@
 		\renewcommand\contentsname{TABLE OF CONTENTS}
 		\newcommand\contentsnameLC{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Table of Contents}}}
 		
+		\hypersetup{linktocpage}
 		\tableofcontents
 		
 		\newpage
@@ -123,21 +125,159 @@
 		As for objectives, achieving this using only open source and freeware technologies will prove that more independent creators have alternative methods to develop their creations. This method can be a starting point as a striving game developer to compile a portfolio of his creations. It can also be used to expand the existing open source resources and furthering the community with ideas on how to use these technologies quickly and efficiently.
 		
 		\vspace{0.2in}
-		
-		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Scope}}} \addcontentsline{toc}{section}{Scope}
-		
-		
-		
+				
 		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Requirements}}} \addcontentsline{toc}{section}{Requirements}
 		
+		\vspace{0.2in}
 		
+		\begin{itemize}
+			\item Do research on finding open source or freeware technologies this must include:
+				\begin{itemize}
+					\item	Game engine
+					\item	All libraries used: Physics, UI, Networking, Terrain system, Import and utilize libraries.
+					\item	Resources: Textures, Models, Music, Sound Effects.
+				\end{itemize}
+			\item	Develop the simplistic game that is possible to be completed within 3 months
+			\item	The Game should be cross platform with at least two different options used or a HTML application that can be run from the browser.
+			\item	OAuth integration must be used for the login system connecting the user to Facebook, Twitter or G+ for achievement updates.
+			\item	Custom login: 
+				\begin{itemize}
+					\item	If anonymity is desired.
+					\item	Encrypt password when stored.
+					\item	Retrieve password feature.
+				\end{itemize}
+			\item	A live leader board must be integrated for real time standing for more competitive users.
+		\end{itemize}
+		
+		\vspace{0.2in}
 		
 		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Game Proposal}}} \addcontentsline{toc}{section}{Game Proposal}
 		
+		\vspace{0.2in}
 		
+			We have decided that for this project requirement of a simplistic game that is can be done in rapid development that we would prefer having a good looking game with full feature where we cut down on depth and game play time. Our idea is to implement a '3D slasher' game which will only consist of one 'open world' map and have multiple maps as a nice to have. This route is decide upon for implementing multiple maps does not drastically increase difficulty but more on scope and time consumption. Doing this we will be able to explore a wider variety of technologies as well as implementations do demonstrate what can be done using these technologies.
+			\\
+			\\
+			Going back to what our game will consist of. We are aiming for a minimalistic game that will have all the various fascists of a game were all extended features and content will be seen as nice to have. It will start out with a single character to be used by the player. When logging in the character level, current position on the map and current experience will be sent to the client to start the game. The 'open world' will have a sense exploration up to a degree, mobs will not have an overwhelming presence to promote admiration of the environment. The size of a map/maps will be dependant on the memory available which will be left to decide on a later basis. This world will consist of multiple mobs from humanoid to animals which will be able to attack and kill you upon detection. All animations will be kept to a minimal to save time for implementing a better looking environment, game play and cleaner implementation.
+			\\
+			\\
+			A levelling system will be implements that will double as the leader board according to the amount of experience gathered. The experience will be calculated according to the amount of health you have lost during an encounter, what level the mob is and how fast you were able to finish it off, the exact formula will be experimented with during testing. This experience value will be update after each kill, sending it to the back-end server that will keep track of all user level and experience. From this the leader board can be pulled in game to see your sanding. At each level gained you will be prompted if you want to post your achievement if you are logged in through OAuth. All values of your character will be calculated at a later stage to determine effectiveness this will include: health, attack strength, defence. Through levelling these values will be increase accordingly to be able to face higher level mobs. A nice to have in regards to levelling will be to have an attribute system that will allow users to increase these values according to there game play.
+			\\
+			\\
+			This is the basic overview of what we aim to accomplish during this project. Any further requirements and ideas will determined if we are selected to take up this project and have met with the client to go over if this is an acceptable approach and idea. We are excited to take up this project for we are game enthusiasts and would appreciate it if we are to be picked to under go this research experiment with you.
+		
+		\vspace{0.2in}
 		
 		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Software Research}}} \addcontentsline{toc}{section}{Software Research}
 		
+		\vspace{0.2in}
 		
+		When we were conducting our research we where astonished of how many open source and freeware technologies/resource there are. A new independent developer has a hard time deciding on which of these will be most suitable for the extent and limitations of his skill, requirements and preference. All of this might be a bit overwhelming but we have decided upon the following software and resources that will be using to implement the game:
+		
+			
+			\subsection*{Game Engine}
+			\addcontentsline{toc}{subsection}{Game Engine}
+			
+			\vspace{0.1cm}
+			
+			We have decide to use the following: \\
+			\indent jMonkeyGameEngine 3 \\
+			\\
+			The reason for this is that most open source engines and freeware engines are C\# and most of engines that use C++ or Java do not support cross platform or is not free to use. This engine is developed in and uses Java for implementation, it can be downloaded as a Netbeans package to simplify installation and gives an interface that is more commonly used by first time developers. It is pre-compiled and outfitted with most of the libraries and accessories that you would require to develop your game all installed or can be downloaded as plugins. The reason for choosing Java above C++, even though C++ is stronger and faster then Java we went this way due to the requirement of rapid development. To be able to achieve this Java offers a lot more open libraries for free use, mostly seeing as this is the first game we will be undertaking the ease of not needing to do memory management will save even more time. Another reason we decided on Java is that when looking at possibilities of implementing design pattern it will also be more time efficient to use. To further the reasons why we would prefer the reason why we chose this engine compare to other it that this engine does support OpenGL 1.x up to 4.x which is not freakently available on these type of engines. This allows us to use all the new features that was rolled out with OpenGL 4 like the freedom of shader usage.
+			
+			\vspace{0.1cm}
+			
+			\subsection*{Design Engine}
+			\addcontentsline{toc}{subsection}{Design Engine}
+			
+			\vspace{0.1cm}
+			
+			We have decide to use the following: \\
+			\indent Blender \\
+			\\
+			The reason for choosing Blender is that it is a freeware software that does everything you would expect from a graphic desing engine. This engine will be used to edit all textures, model and perform all the animations that we will require. It is a world wild used software by independent developer and ever small developer companies that can not afford a high end game engine like Unreal, CryEngine as well as the Autodesk Suite for all their development needs.
+			
+			\vspace{0.1cm}
+			
+			\subsection*{Libraries}
+			\addcontentsline{toc}{subsection}{Libraries}
+			
+			\vspace{0.1cm}
+			
+			\begin{itemize}
+				\item Bullet or jBullet: \\
+					jMonkey 3 has the libraries added to the SDK. Having this highly rated physics lib available as open source allows us to delve into the source and see how the underbelly works. Using this we are able to do all physics calculations on Nvidia's CUDA cores instead of older physics engines that still requires CPU processing. It will still be decide between Bullet and jBullet seeing as both run Window as well as Android.
+					
+				\item Stack-Alloc: \\
+					This library is used by Bullet and jBullet to simplify the amount of memory utilization and waist there of for the physics component of the game. We might be using this to decrease the required amount of memory seeing as it needs to run on Android devices as well.
+				
+				\item Spidermonkey:\\
+					As a requirement we need to implement a backend system to where users connect to during gameplay. To achieve this will will be using Spidermonkey to handle all the client as well as server side programming and management. The reason for this library is that it is also include as part of the jMonkey 3 SDK.
+					
+				\item jME3-Core: \\
+					This is the basis of jMonkey 3 containing most of the required libraries required:
+					\begin{itemize}
+						\item MatDefs: Pre-created shaders.
+						\item ShaderLib: Libraries used in user created glsl shaders to display visual effect without having to recreate e.g. Bump, fog, hdr, lighting, math, shadows, water.
+						\item Animation: Handles all animation that you will require.
+						\item Audio: Controlling file loading, playing and setting.
+						\item Bounding: Adding bounding boxes for collision detecting.
+						\item Cinematic: If you require making cut scenes for your game.
+						\item Collision: Support for collisions detection and results there of.
+						\item Effect: Particle systems.
+						\item Loading: Handles all import and export.
+						\item Input: Retrieves user input.
+						\item Light: Lighting point variety.
+						\item Math: All mathematics required when implementing games.
+						\item Post: Post processing features.
+						\item Render: Camera and rendering options.
+						\item Scene: Scene management.
+						\item Shader: Controller of all OpenGL programs used.
+						\item Shadow: Filters, controllers and renders.
+						\item System: System monitoring 
+						\item Textures: Support of all texture types and buffers required.
+						\item Util: Utilities to improve safety and overall usage.
+						\item Converters: Loading models.
+						\item Optimize: Optimization of storage and organisation of data e.g. geometry, trees, textures and triangles.
+						\item SaveGame: To maintain position and data.
+						\item Shader: Shader debugging and validation.
+					\end{itemize}
+					
+				\item Audio: \\
+					Other possible choses for the audio component can be OpenAL or JOgg which is also supported in \\ jMonkey 3.
+				
+				\item jME3-effects:\\
+					This adds extra means to improve the aesthetics of the game through:
+						\begin{itemize}
+							\item Post processing: Bloom, Depth Of Field, FXAA, Fog, Gamma Correction, Light Scattering.
+							\item SSAO
+							\item Water
+						\end{itemize}
+					
+				\item jME3-niftygui: \\
+					The user interface library that we will be using that is supported by Window and Android.
+				
+				\item Other: \\
+				Any other library natively supported in Java is accessible and usable during this project.
+			
+			\end{itemize}
+			
+			\vspace{0.1cm}
+			
+			\subsection*{Resources}
+			\addcontentsline{toc}{subsection}{Resources}
+			
+			\vspace{0.1cm}
+			
+			The resources that we will be using during this project will consist of: Textures, 3D / 2D Models, Music and Sound Effects. All of these need to be freeware and this may seem as a difficult task at first but there are various sources available:
+			\begin{itemize}
+				\item \href{http://www.opengameart.org}{Open Game Art}
+				\item \href{http://www.archive3d.net}{Archive 3d}
+				\item \href{http://www.texturemate.com}{Texture Mate}
+				\item \href{http://www.blender-models.com}{Blender Models}
+				\item \href{http://www.flashkit.com}{Flash Kit}
+				\item \href{http://www.mayang.com/textures/}{Mayang Textures}
+				\item \href{http://www.cgtextures.com}{CG Textures}
+			\end{itemize}
 
 \end{document}
