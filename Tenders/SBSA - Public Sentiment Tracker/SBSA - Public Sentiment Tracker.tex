@@ -1,0 +1,221 @@
+\documentclass[letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{epigraph}
+\usepackage{lipsum}
+
+\usepackage{setspace, amsmath}
+
+\usepackage[centering,includeheadfoot,margin=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{calc,blindtext}
+
+\renewcommand\epigraphflush{flushright}
+\renewcommand\epigraphsize{\normalsize}
+\setlength\epigraphwidth{0.7\textwidth}
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+
+\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{1.0in}
+
+\makeatletter
+\def\printauthor{%
+    {\large \@author}}
+\makeatother
+\author{%
+    NJ Taljaard \\
+    10153285 \vspace{20pt} \\
+    Gerhard Smit \\
+    12282945 \vspace{20pt} \\
+    Martin Schoeman \\
+    10651994 \\
+}
+
+% The following code is borrowed from: http://tex.stackexchange.com/a/86310/10898
+
+\newcommand\titlepagedecoration{%
+	\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+	
+		\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+		\coordinate (aux2) at ([yshift=-410pt]current page.north east);
+		\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
+		\coordinate (aux4) at ([yshift=-150pt]current page.north east);
+		
+		\begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
+			\draw
+			  (aux1) -- coordinate (a)
+			  ++(225:5) --
+			  ++(-45:5.1) coordinate (b);
+			\draw[shorten <= -10pt]
+			  (aux3) --
+			  (a) --
+			  (aux1);
+			\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
+			  (b) --
+			  ++(225:2.2) --
+			  ++(-45:2.2);
+		\end{scope}
+			\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+			  (aux4) --
+			  ++(225:0.8) --
+			  ++(-45:0.8);
+		\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+			\draw[shorten <= -10pt]
+			  (aux2) --
+			  ++(225:3) coordinate[pos=0.45] (c) --
+			  ++(-45:3.1);
+			\draw
+			  (aux2) --
+			  (c) --
+			  ++(135:2.5) --
+			  ++(45:2.5) --
+			  ++(-45:2.5) coordinate[pos=0.3] (d);   
+			\draw 
+			  (d) -- +(45:1);
+		\end{scope}
+	\end{tikzpicture}
+}
+
+\begin{document}
+
+\begin{titlepage}
+
+\noindent
+\titlefont Laminin \par
+\section*{•}
+\huge Tender for SBSA - Public Sentiment Tracker.
+\null\vfill
+\vspace*{1cm}
+\noindent
+\hfill
+\begin{minipage}{0.35\linewidth}
+    \begin{flushright}
+        \printauthor
+    \end{flushright}
+\end{minipage}
+%
+\begin{minipage}{0.02\linewidth}
+    \rule{1pt}{125pt}
+\end{minipage}
+\titlepagedecoration
+\end{titlepage}
+
+% % % % % % % % % % % % % % %
+% 							%
+%	Remainder of document	%
+% 							%
+% % % % % % % % % % % % % % % 
+
+	\newpage
+		\renewcommand\contentsname{TABLE OF CONTENTS}
+		\newcommand\contentsnameLC{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Table of Contents}}}
+		
+		\tableofcontents
+		
+		\newpage
+		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Vision \& Objective}}} \addcontentsline{toc}{section}{Vision \& Objective}
+		
+		\vspace{0.2in}
+		
+		In this project we are presented with the problem of data mining from social media like 					blogs, forums and so forth. It takes to many man hours to do data mining manually. Therefore we 			will be designing and developing an automated application to do the data mining, that will be 				tracking the public sentiment towards any given topic. The application will also allow for 					reporting of the information it has gathered through data mining. The application will also have 			further functionality that will be explained later on.
+		
+		\vspace{0.2in}
+		
+		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Scope}}} \addcontentsline{toc}{section}{Scope}
+		
+		\vspace{0.2in}
+		
+		Design and develop a social media data mining application, that will track social media like 				Facebook, Twitter and so forth. The application will mainly be tracking public sentiment of any 			given topic. The application will store all the data it that it will get from the social media it 			is tracking. There will be data mining performed on the stored data to generate the public 					sentiment of a chosen topic. The public sentiment should also be able to be shown in graphs. The 			application should also have the functionality to set thresholds for the public sentiment and if 			the thresholds is breaches, the user should be notified.
+		
+		\vspace{0.2in}
+		
+		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Requirements}}} \addcontentsline{toc}{section}{Requirements}
+		
+		\vspace{0.2in}
+		
+		\begin{itemize}
+		\item
+		The application should be able to track social media. Including, but not limited to Twitter feeds 			and Facebook post.
+		\item
+		The application should have the functionality to generate sentiment index based on the defined 				topic, given by the user.
+		\item
+		The generated sentiment index should be able to be displayed as a graph over time.
+		\item
+		The functionality should also be added to notify the user when defined thresholds are breached.
+		\item
+		Sleek user experience and attention to detail.
+		\item
+		The technical complexity must be as simple as possible without losing any functionality and user 			experience.
+		\item
+		Use open source technologies where possible.
+		\item
+		Management Information Systems' effectiveness should include storing of information and data 				mining of that stored information. 
+		\end{itemize}
+		
+		\vspace{0.2in}
+		
+		\pagebreak
+		
+		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Architecture Design}}} \addcontentsline{toc}{section}{Architecture Design}
+		
+		\vspace{0.2in}
+		
+		\textbf{NB The following was received from the project proposal:}
+		\\\linebreak
+		The solution should be split into various components (separation of concerns – as a guideline):
+		\begin{itemize}
+		\item
+		A sentiment analysis engine (SAE)
+		\begin{itemize}
+		\item
+		Provide a REST API for querying from any front-end application.
+		\item
+		Provide a REST API for storing the FEED text to be analyzed.
+		\item
+		Produce and store the Sentiment analysis for future queries.
+		\end{itemize}
+		\end{itemize}
+		
+		\begin{itemize}
+		\item
+		A feed processor (FEED)
+		\begin{itemize}
+		\item
+		Captures a stream of text from social media such as Twitter.
+		\item
+		Provide the SAE with captured stream of text for analysis.
+		\item
+		Should be extendable to other social media streams.
+		\end{itemize}
+		\end{itemize}
+		
+		\begin{itemize}
+		\item
+		A front-end web application (FEA)
+		\begin{itemize}
+		\item
+		Provide input for the keywords and topic.
+		\item
+		Interacts with SAE for query results.
+		\item
+		Produce a sentiment index graph over time.
+		\item
+		Produce a result set of text highlighting the keywords provided.
+		\item
+		Alert on given threshold breach for that topic.
+		\end{itemize}
+		\end{itemize}
+		
+		\vspace{0.2in}
+		
+		\section*{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Application Proposal}}} \addcontentsline{toc}{section}{Application Proposal}
+		
+		\vspace{0.2in}
+		
+		We will design and develop an easy to use application, that will satisfy all the project 					requirements and all the points mentioned in this document. The application will allow for easy 			public sentiment data gathering.
+		The data gathered will be transformed into information, all done by the application. 						The application will display the information to the user and that will give the user knowledge of 			the public sentiment. In return the user will gain wisdom.
+		
+		\vspace{0.2in}
+		
+
+\end{document}
