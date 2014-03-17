@@ -3,6 +3,7 @@
 \usepackage{tikz}
 \usepackage{epigraph}
 \usepackage{lipsum}
+\usepackage{hyperref}
 
 \usepackage{setspace, amsmath}
 
@@ -23,7 +24,7 @@
     {\large \@author}}
 \makeatother
 \author{%
-    NJ Taljaard \\
+    Nico Taljaard \\
     10153285 \vspace{20pt} \\
     Gerhard Smit \\
     12282945 \vspace{20pt} \\
@@ -82,10 +83,10 @@
 
 \noindent
 \titlefont Laminin \par
-\section*{•}
-\huge Tender for SBSA - Public Sentiment Tracker.
+\epigraph{ Tender for SBSA - Public Sentiment Tracker.}%
+{\textit{ 2014 }\\ \textsc{ }}
 \null\vfill
-\vspace*{1cm}
+\vspace*{3cm}
 \noindent
 \hfill
 \begin{minipage}{0.35\linewidth}
@@ -110,6 +111,7 @@
 		\renewcommand\contentsname{TABLE OF CONTENTS}
 		\newcommand\contentsnameLC{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Table of Contents}}}
 		
+		\hypersetup{linktocpage}
 		\tableofcontents
 		
 		\newpage
