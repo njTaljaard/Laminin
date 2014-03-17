@@ -155,16 +155,36 @@
 		
 		\vspace{0.2in}
 		
-			We have decided that for this project requirement of a simplistic game that is can be done in rapid development that we would prefer having a good looking game with full feature where we cut down on depth and game play time. Our idea is to implement a '3D slasher' game which will only consist of one 'open world' map and have multiple maps as a nice to have. This route is decide upon for implementing multiple maps does not drastically increase difficulty but more on scope and time consumption. Doing this we will be able to explore a wider variety of technologies as well as implementations do demonstrate what can be done using these technologies.
+			We have decided that for this project requirement of a simplistic game that is can be done in rapid development that we would prefer having a good looking game with full feature where we cut down on depth and game play time. Our idea is to implement a '3D slasher' game which will only consist of one 'open world' map focusing on the environment. This route is decide upon for implementing multiple maps does not drastically increase difficulty but more on scope and time consumption. Doing this we will be able to explore a wider variety of technologies as well as implementations do demonstrate what can be done using these technologies. 
 			\\
 			\\
-			Going back to what our game will consist of. We are aiming for a minimalistic game that will have all the various fascists of a game were all extended features and content will be seen as nice to have. It will start out with a single character to be used by the player. When logging in the character level, current position on the map and current experience will be sent to the client to start the game. The 'open world' will have a sense exploration up to a degree, mobs will not have an overwhelming presence to promote admiration of the environment. The size of a map/maps will be dependant on the memory available which will be left to decide on a later basis. This world will consist of multiple mobs from humanoid to animals which will be able to attack and kill you upon detection. All animations will be kept to a minimal to save time for implementing a better looking environment, game play and cleaner implementation.
+			We are aiming for a minimalistic game that will have all the various fascists of a game were all extended features and content will be seen as nice to have which is listed below. It will start out with a single character to be used by the player. When logging in the character level, current position on the map and current experience will be sent to the client to start the game. The 'open world' will have a sense exploration up to a degree, mobs will not have an overwhelming presence to promote admiration of the environment. The size of a map/maps will be dependant on the memory available which will be left to decide on a later basis. This world will consist of multiple mobs from humanoid to animals which will be able to attack and kill you upon detection. All animations will be kept to a minimal to save time for implementing a better looking environment, game play and cleaner implementation.
 			\\
 			\\
-			A levelling system will be implements that will double as the leader board according to the amount of experience gathered. The experience will be calculated according to the amount of health you have lost during an encounter, what level the mob is and how fast you were able to finish it off, the exact formula will be experimented with during testing. This experience value will be update after each kill, sending it to the back-end server that will keep track of all user level and experience. From this the leader board can be pulled in game to see your sanding. At each level gained you will be prompted if you want to post your achievement if you are logged in through OAuth. All values of your character will be calculated at a later stage to determine effectiveness this will include: health, attack strength, defence. Through levelling these values will be increase accordingly to be able to face higher level mobs. A nice to have in regards to levelling will be to have an attribute system that will allow users to increase these values according to there game play.
+			A levelling system will be implements that will double as the leader board according to the amount of experience gathered. The experience will be calculated according to the amount of health you have lost during an encounter, what level the mob is and how fast you were able to finish it off, the exact formula will be experimented with during testing. This experience value will be update after each kill, sending it to the back-end server that will keep track of all user level and experience. From this the leader board can be pulled in game to see your sanding.  At each level gained you will be prompted if you want to post your achievement if you are logged in through OAuth.
 			\\
 			\\
-			This is the basic overview of what we aim to accomplish during this project. Any further requirements and ideas will determined if we are selected to take up this project and have met with the client to go over if this is an acceptable approach and idea. We are excited to take up this project for we are game enthusiasts and would appreciate it if we are to be picked to under go this research experiment with you.
+			All values of your character will be calculated at a later stage to determine effectiveness this will include: health, attack strength, defence. Through levelling these values will be increase accordingly to be able to face higher level mobs.
+			\\
+			\\
+			Nice-To-Have (During and after project completion): \\
+			\begin{itemize}
+				\item Multiple maps.
+				\item Improvement of animations.
+				\item Improvement on character textures and modelling.
+				\item Further the achievement system with can be shared on social media consisting of:
+					\begin{itemize}
+						\item Killing on of each mob.
+						\item Killing amounts of curtain mobs.
+					\end{itemize}
+				\item Attribute system that will allow users to increase character values according to there game play.
+				\item Gear system for characters.
+				\item Looting system for mob kills to be sold or equipped.
+				\item Look into adding multi-player support through SpiderMonkey.
+			\end{itemize}
+			
+			\vspace{0.1in}
+			\noindent This is the basic overview of what we aim to accomplish during this project. Any further requirements and ideas will determined if we are selected to take up this project and have met with the client to go over if this is an acceptable approach and idea. We are excited to take up this project for we are game enthusiasts and would appreciate it if we are to be picked to under go this research experiment with you.
 		
 		\vspace{0.2in}
 		
@@ -193,7 +213,7 @@
 			\vspace{0.1cm}
 			
 			We have decide to use the following: \\
-			\indent Blender \\
+			\indent Blender \& Gimp \\
 			\\
 			The reason for choosing Blender is that it is a freeware software that does everything you would expect from a graphic desing engine. This engine will be used to edit all textures, model and perform all the animations that we will require. It is a world wild used software by independent developer and ever small developer companies that can not afford a high end game engine like Unreal, CryEngine as well as the Autodesk Suite for all their development needs.
 			
@@ -213,7 +233,10 @@
 				
 				\item Spidermonkey:\\
 					As a requirement we need to implement a backend system to where users connect to during gameplay. To achieve this will will be using Spidermonkey to handle all the client as well as server side programming and management. The reason for this library is that it is also include as part of the jMonkey 3 SDK.
-					
+				
+				\item Audio: \\
+					Other possible choses for the audio component can be OpenAL or JOgg which is also supported in \\ jMonkey 3.
+									
 				\item jME3-Core: \\
 					This is the basis of jMonkey 3 containing most of the required libraries required:
 					\begin{itemize}
@@ -242,9 +265,6 @@
 						\item SaveGame: To maintain position and data.
 						\item Shader: Shader debugging and validation.
 					\end{itemize}
-					
-				\item Audio: \\
-					Other possible choses for the audio component can be OpenAL or JOgg which is also supported in \\ jMonkey 3.
 				
 				\item jME3-effects:\\
 					This adds extra means to improve the aesthetics of the game through:
