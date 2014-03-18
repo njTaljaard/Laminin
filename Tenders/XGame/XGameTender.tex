@@ -4,6 +4,7 @@
 \usepackage{epigraph}
 \usepackage{lipsum}
 \usepackage{hyperref}
+\usepackage{tocloft}
 
 \usepackage{setspace, amsmath}
 
@@ -86,7 +87,7 @@
 \epigraph{ Tender application for XGame presented by Derivco. The purpose of this document is to give an overview of why we should be awarded the project \\ and how we aim to achieve success and complete the project.}%
 {\textit{ 2014 }\\ \textsc{ }}
 \null\vfill
-\vspace*{3cm}
+\vspace*{4cm}
 \noindent
 \hfill
 \begin{minipage}{0.35\linewidth}
@@ -111,6 +112,7 @@
 		\renewcommand\contentsname{TABLE OF CONTENTS}
 		\newcommand\contentsnameLC{\colorbox{blue}{\makebox[\textwidth-2\fboxsep][l]{\bfseries\color{white} Table of Contents}}}
 		
+		\renewcommand{\cftdot}{}
 		\hypersetup{linktocpage}
 		\tableofcontents
 		
