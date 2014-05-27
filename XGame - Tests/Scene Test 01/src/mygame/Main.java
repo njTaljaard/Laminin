@@ -1,6 +1,16 @@
 package mygame;
 
+import com.jme3.animation.AnimChannel;
+import com.jme3.animation.AnimControl;
+import com.jme3.animation.AnimEventListener;
+import com.jme3.animation.LoopMode;
 import com.jme3.app.SimpleApplication;
+import com.jme3.bullet.BulletAppState;
+import com.jme3.bullet.collision.shapes.CollisionShape;
+import com.jme3.bullet.util.CollisionShapeFactory;
+import com.jme3.input.KeyInput;
+import com.jme3.input.controls.ActionListener;
+import com.jme3.input.controls.KeyTrigger;
 import com.jme3.light.AmbientLight;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
@@ -8,8 +18,11 @@ import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.post.FilterPostProcessor;
 import com.jme3.renderer.RenderManager;
+import com.jme3.renderer.queue.RenderQueue;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
+import com.jme3.scene.control.Control;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture2D;
 import com.jme3.water.WaterFilter;
@@ -32,10 +45,18 @@ public class Main extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         flyCam.setMoveSpeed(100f);
+        
+        
+        //BulletAppState bulletAppState = new BulletAppState();
+        //bulletAppState.setThreadingType(BulletAppState.ThreadingType.PARALLEL);
+        //stateManager.attach(bulletAppState);
+        
         initBox();
         initScene();
         initLight();
         initPPcWater();
+        character player = new character(assetManager, inputManager);
+        rootNode.attachChild(player.retrieveNode());
     }
 
     @Override
@@ -46,7 +67,7 @@ public class Main extends SimpleApplication {
     @Override
     public void simpleRender(RenderManager rm) {
         //TODO: add render code
-    }    
+    }   
     
     private void initBox() {
         Box b = new Box(1, 1, 1);
@@ -61,6 +82,7 @@ public class Main extends SimpleApplication {
     
     private void initScene() {
         sceneModel = assetManager.loadModel("Scenes/Scene.j3o");
+        CollisionShape sceneShape = CollisionShapeFactory.createMeshShape(sceneModel);
         if (sceneModel == null)
             System.out.println("not loaded");
         rootNode.attachChild(sceneModel);
@@ -72,28 +94,6 @@ public class Main extends SimpleApplication {
         ambient.setColor(ColorRGBA.White);
         rootNode.addLight(ambient); 
     }
-    /*
-    public void initSimpleWater() { 
-        SimpleWaterProcessor waterProcessor = new SimpleWaterProcessor(assetManager);
-        waterProcessor.setReflectionScene(sceneModel); 
-        Vector3f waterLocation = new Vector3f(0,-6,0); 
-        waterProcessor.setPlane(new Plane(Vector3f.UNIT_Y, waterLocation.dot(Vector3f.UNIT_Y))); 
-        viewPort.addProcessor(waterProcessor); 
-        waterProcessor.setWaterDepth(10); 
-        // transparency of water 
-        waterProcessor.setDistortionScale(0.05f); 
-        // strength of waves 
-        waterProcessor.setWaveSpeed(0.05f); 
-        // speed of waves 
-        Quad quad = new Quad(800,800); 
-        quad.scaleTextureCoordinates(new Vector2f(6f,6f)); 
-        Geometry water = new Geometry("water", quad); 
-        water.setLocalRotation(new Quaternion().fromAngleAxis(-FastMath.HALF_PI, Vector3f.UNIT_X)); 
-        water.setLocalTranslation(-400, 0.32f, 400); 
-        water.setShadowMode(RenderQueue.ShadowMode.Receive); 
-        water.setMaterial(waterProcessor.getMaterial()); 
-        rootNode.attachChild(water); 
-    }     */
     
     public void initPPcWater() { 
         FilterPostProcessor fpp = new FilterPostProcessor(assetManager); 
@@ -114,5 +114,6 @@ public class Main extends SimpleApplication {
         water.setRefractionStrength(0.2f); water.setWaterHeight(5.0f); 
         fpp.addFilter(water); 
         viewPort.addProcessor(fpp); 
-    }
+    } 
+    
 }
